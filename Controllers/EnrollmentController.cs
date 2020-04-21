@@ -52,7 +52,7 @@ namespace EnrollView.Controllers
             ViewData["CourseID"] = new SelectList(_context.Courses, "ID", "ID");
             ViewData["StudentID"] = new SelectList(_context.Students, "ID", "ID");
 
-            ViewData["LastName"] = new SelectList(_context.Students, "LastName", "LastName");
+            ViewData["LastName"] = new SelectList(_context.Students, "ID", "ID");
             return View();
         }
 
