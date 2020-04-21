@@ -51,6 +51,8 @@ namespace EnrollView.Controllers
         {
             ViewData["CourseID"] = new SelectList(_context.Courses, "ID", "ID");
             ViewData["StudentID"] = new SelectList(_context.Students, "ID", "ID");
+
+            ViewData["LastName"] = new SelectList(_context.Students, "LastName", "LastName");
             return View();
         }
 
@@ -59,7 +61,7 @@ namespace EnrollView.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,CourseID,StudentID,Grade")] Enrollment enrollment)
+        public async Task<IActionResult> Create([Bind("ID,CourseID,StudentID,LastName,Grade")] Enrollment enrollment)
         {
             if (ModelState.IsValid)
             {

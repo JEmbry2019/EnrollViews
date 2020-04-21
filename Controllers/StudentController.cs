@@ -34,6 +34,10 @@ namespace EnrollView.Controllers
             }
 
             var student = await _context.Students
+            //New Code
+            .Include(s => s.Enrollments)
+            .ThenInclude( e => e.Course)
+            //Old Code
                 .FirstOrDefaultAsync(m => m.ID == id);
             if (student == null)
             {

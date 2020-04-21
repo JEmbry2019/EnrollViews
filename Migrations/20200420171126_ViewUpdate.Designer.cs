@@ -4,14 +4,16 @@ using EnrollView.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace EnrollView.Migrations
 {
     [DbContext(typeof(EnrollViewContext))]
-    partial class EnrollViewContextModelSnapshot : ModelSnapshot
+    [Migration("20200420171126_ViewUpdate")]
+    partial class ViewUpdate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -70,16 +72,10 @@ namespace EnrollView.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("FirstMidName")
-                        .IsRequired()
-                        .HasColumnName("FirstName")
-                        .HasColumnType("nvarchar(50)")
-                        .HasMaxLength(50);
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LastName")
-                        .IsRequired()
-                        .HasColumnName("Last Name")
-                        .HasColumnType("nvarchar(50)")
-                        .HasMaxLength(50);
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ID");
 
