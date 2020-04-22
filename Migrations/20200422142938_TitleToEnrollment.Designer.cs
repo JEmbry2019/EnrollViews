@@ -4,14 +4,16 @@ using EnrollView.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace EnrollView.Migrations
 {
     [DbContext(typeof(EnrollViewContext))]
-    partial class EnrollViewContextModelSnapshot : ModelSnapshot
+    [Migration("20200422142938_TitleToEnrollment")]
+    partial class TitleToEnrollment
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

@@ -43,16 +43,17 @@ namespace EnrollView.Controllers
                 return NotFound();
             }
 
+
             return View(enrollment);
         }
 
         // GET: Enrollment/Create
         public IActionResult Create()
         {
-            ViewData["CourseID"] = new SelectList(_context.Courses, "ID", "ID");
-            ViewData["StudentID"] = new SelectList(_context.Students, "ID", "ID");
+            ViewData["CourseID"] = new SelectList(_context.Courses, "ID", "Title");
+            ViewData["StudentID"] = new SelectList(_context.Students, "ID", "LastName");
 
-            ViewData["LastName"] = new SelectList(_context.Students, "ID", "ID");
+            ViewData["LastName"] = new SelectList(_context.Students, "ID", "LastName");
             return View();
         }
 
@@ -88,8 +89,8 @@ namespace EnrollView.Controllers
             {
                 return NotFound();
             }
-            ViewData["CourseID"] = new SelectList(_context.Courses, "ID", "ID", enrollment.CourseID);
-            ViewData["StudentID"] = new SelectList(_context.Students, "ID", "ID", enrollment.StudentID);
+            ViewData["CourseID"] = new SelectList(_context.Courses, "ID", "Title", enrollment.CourseID);
+            ViewData["StudentID"] = new SelectList(_context.Students, "ID", "LastName", enrollment.StudentID);
             return View(enrollment);
         }
 
@@ -125,8 +126,8 @@ namespace EnrollView.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CourseID"] = new SelectList(_context.Courses, "ID", "ID", enrollment.CourseID);
-            ViewData["StudentID"] = new SelectList(_context.Students, "ID", "ID", enrollment.StudentID);
+            ViewData["CourseID"] = new SelectList(_context.Courses, "ID", "Course", enrollment.CourseID);
+            ViewData["StudentID"] = new SelectList(_context.Students, "ID", "Student", enrollment.StudentID);
             return View(enrollment);
         }
 
